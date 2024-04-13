@@ -28,8 +28,8 @@ app.MapGet("/animals", () =>
 
 app.MapPost("/animals-minimal/{id}", (Animal animal) =>
 {
-    Console.WriteLine(animal.id);
-    Console.WriteLine(animal.name);
+    Console.WriteLine(animal.Id);
+    Console.WriteLine(animal.Name);
 
     return Results.Created();
 });

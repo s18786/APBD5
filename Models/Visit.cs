@@ -2,10 +2,10 @@
 
 public class Visit : Animal
 {
-    public int id_visit { get; set; }
-    public DateTime date_of_visit { get; set; }
-    public string animal { get; set; }
-    public string visit_description { get; set; }
-    public int price { get; set; }
+    public int IdVisit { get; set; }
+    public DateTime DateOfVisit { get; set; }
+    public string Animal { get; set; }
+    public string VisitDescription { get; set; }
+    public int Price { get; set; }
 
 }

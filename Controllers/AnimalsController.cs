@@ -24,7 +24,7 @@ public class AnimalsController: ControllerBase
     [HttpGet("/api/animals/{id:int}")]
     public IActionResult GetAnomalsById(int id)
     {
-        var animals= _aniDb.Animals.FirstOrDefault(a => a.id == id);
+        var animals= _aniDb.Animals.FirstOrDefault(a => a.Id == id);
         return animals == null ? NotFound($"No animal with {id} found") : Ok();
     }
     
@@ -37,9 +37,9 @@ public class AnimalsController: ControllerBase
     }
 
     [HttpPut("/api/animals/{id:int}")]
-    public IActionResult editAnimal(int id, Animal animal)
+    public IActionResult EditAnimal(int id, Animal animal)
     {
-        var animalToEdit = _aniDb.Animals.FirstOrDefault(a => a.id == id);
+        var animalToEdit = _aniDb.Animals.FirstOrDefault(a => a.Id == id);
         if (animalToEdit == null)
         {
             return (IActionResult)Results.NotFound($"No animal with id {id}");
@@ -50,9 +50,9 @@ public class AnimalsController: ControllerBase
     }
 
     [HttpDelete("/api/animals/{id:int}")]
-    public IActionResult deleteAnimal(int id)
+    public IActionResult DeleteAnimal(int id)
     {
-        var animalToDelete = _aniDb.Animals.FirstOrDefault(a => a.id == id);
+        var animalToDelete = _aniDb.Animals.FirstOrDefault(a => a.Id == id);
         if (animalToDelete == null)
         {
             return (IActionResult)Results.NoContent();
@@ -62,14 +62,14 @@ public class AnimalsController: ControllerBase
     }
     
     [HttpGet("{id:int}/visits")]
-    public IActionResult getVisits(int id)
+    public IActionResult GetVisits(int id)
     {
-        var visitToAnimal = _aniDb.Visits.FirstOrDefault(a => a.id == id);
+        var visitToAnimal = _aniDb.Visits.FirstOrDefault(a => a.Id == id);
         return Ok(visitToAnimal);
     }
     
     [HttpPost("{id:int}/visits")]
-    public IActionResult addVisit(Visit visit)
+    public IActionResult AddVisit(Visit visit)
     {
         _aniDb.Visits.Add(visit);
         return StatusCode(StatusCodes.Status201Created);    
